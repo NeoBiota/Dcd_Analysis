@@ -1,0 +1,15 @@
+#parameterfile for dcd-GridMat Python interface
+#more calculation parameters are set in the parameter file for the perl GridMat
+#residues and atoms and outputs have to match the config for the perl GridMAT!
+
+
+pdb: '../inputfiles/GramA.DPCC.Wat.box.ion.pdb'
+dcd: ['../inputfiles/eq6_part.dcd']
+perl_param: 'parameters/param_example'
+# protein: True
+#resname: DPPC
+#resname2: POPC
+#atoms: P #(one or more)
+#atoms2: P
+output: ["bottom_areas"]
+outname: "gram_dpcc_1"

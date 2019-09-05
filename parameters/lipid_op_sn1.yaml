@@ -1,0 +1,17 @@
+########################### parameterfile for lipid_op #################################
+
+# Inputfiles pdb and matching dcd
+# lipids:dictonary that contains name of lipid(key) and a tuple
+# tuple contains lipid selection text (maybe resname or segid) and bondlist
+# bondlist is a list of strings like ["C14-C16", "C15-C17", ...]
+# according to the Cn-1 - Cn+1 vectors
+# output: list of string (['all'], ['avg'], ['all', 'avg'])
+# avg means averaged over residue!!
+# outname: prefix for saving output data
+
+pdb: "../../DPCC_Gram/coord/GramA.DPCC.Wat.box.ion.pdb"
+dcd: ["../../DPCC_Gram/equilibration/eq0.dcd", "../../DPCC_Gram/equilibration/eq1.dcd"] 
+lipids: {DPPC: ["segname D1", ["C21-C22-C23", "C22-C23-C24", "C23-C24-C25", "C24-C25-C26", "C25-C26-C27", "C26-C27-C28", "C27-C28-C29", "C28-C29-C210", "C29-C210-C211", "C210-C211-C212", "C211-C212-C213", "C212-C213-C214", "C213-C214-C215", "C214-C215-C216"]]}
+axis: 2
+outname: "../../DPCC/6_1_10000_sn1_"
+out: ['avg']
