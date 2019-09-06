@@ -137,7 +137,7 @@ def initialise(params):
     residues = []
     resids = []
     for sel in sels:
-        indices.extend(sel.serial)
+        indices.extend(sel.index)
         atoms.extend(sel.name)
         residues.extend(sel.resname)
         resids.extend(sel.resid)

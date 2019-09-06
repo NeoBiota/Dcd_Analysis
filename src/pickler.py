@@ -86,7 +86,7 @@ class Pickler:
 
     def pickle_Bondlist(self, yaml_file):
         """
-        returns bondlist pairs of atom serial (indices in dcd file) per res
+        returns bondlist pairs of atom indices (indices in dcd file) per res
         """
 
         # check if input is sufficient, else return
@@ -110,11 +110,11 @@ class Pickler:
             for i, bond in enumerate(lipid_param[1]):
                 # sanity check for broken lipid residues
                 atom1 = atomsel(lipid_param[0] +
-                                " and name "+bond.split('-')[0]).serial
+                                " and name "+bond.split('-')[0]).index
                 atom2 = atomsel(lipid_param[0] +
-                                " and name "+bond.split('-')[1]).serial
+                                " and name "+bond.split('-')[1]).index
                 atom3 = atomsel(lipid_param[0] +
-                                " and name "+bond.split('-')[2]).serial
+                                " and name "+bond.split('-')[2]).index
                 if min(len(atom1), len(atom2), len(atom3)) == len(res_ids):
                     index_bond_list[i] = zip(atom1, atom2, atom3)
                 else:
