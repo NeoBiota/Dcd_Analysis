@@ -1,0 +1,16 @@
+
+#parameterfile for dcd-GridMat Python interface
+#more calculation parameters are set in the parameter file for the perl GridMat
+#pickle and outputs have to match the config for the perl GridMAT!
+#pickle contains two lists: [[atomname, resid, residue]] and indices
+#atoms in the list like GridMat param file... lipidatom, protein, etc.
+
+
+dcd: '../inputfiles/eq2.dcd'
+pickle: 'gm_pickle'
+perl_param: '/parameters/param_example'
+#resname: DPPC
+#resname2: POPC
+atoms: P
+#atoms2: P
+#output: "top_pbc"

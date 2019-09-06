@@ -1,0 +1,21 @@
+######################### parameter file for lipid_op_fram ################################
+
+# input dcd file
+# pickle contains dictionary of lipidname(key) and a bondlist
+# that contains indices of atoms involved in the calculation
+# according to the Cn-1 - Cn+1 vectors
+# frames to be read (-1 is last frame)
+# frames: can be an tuple - yaml syntax: !!python/tuple [start, end, step]
+# or a list of frame numbers
+# avg_slice: averaging over every x frames
+# output: list of string (['all'], ['avg'], ['all', 'avg'])
+# avg means averaged over residue!!
+# outname: prefix for saving output data
+
+dcd: ["../../DPCC/dpcc.6.dcd"]
+pickle: "dpcc_gram_sn2"
+axis: 2
+frames: !!python/tuple [0, -1, 1]
+avg_slice: 1
+outname: "dpcc_sn2_test"
+out: ['avg']

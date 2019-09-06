@@ -1,0 +1,15 @@
+######################### parameter file for lipid_op ################################
+
+# input LIST of dcd file(s)
+# pickle contains dictionary of lipidname(key) and a bondlist
+# that contains indices of atoms involved in the calculation
+# according to the Cn-1 - Cn+1 vectors
+# output: list of string (['all'], ['avg'], ['all', 'avg'])
+# avg means averaged over residue!!
+# outname: prefix for saving output data
+
+dcd: ["../../DPCC/dpcc.6.dcd"]
+pickle: "dpcc_gram_sn1"
+axis: 2
+outname: "dpcc_sn1_test"
+out: ['avg']
