@@ -6,7 +6,7 @@ Author Paulina Mueller
 Year 2019
 
 External sources
-Snippets were taken from the Python Package ProDy, Ahmet Bakan, Lidio M. Meireles, Ivet Bahar, University of Pittsburgh
-VMD/PsfGen python modules from Robin M. Betz
+Snippets were taken from the Python Package ProDy, Ahmet Bakan, Lidio M. Meireles, Ivet Bahar, University of Pittsburgh and the
+VMD/PsfGen python modules from Robin M. Betz were used.
 
 There is a set of tools that work with the vmd python installation aswell as a version of the tools that work if the indices are in an array pickled by python. This could be easily altered so indices extracted from tcl-vmd are read into the python scripts. 
