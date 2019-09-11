@@ -6,6 +6,7 @@ Paulina Mueller, 07.2019
 from __future__ import division
 
 import cPickle as pickle
+import glob
 import numpy as np
 import os
 import subprocess
@@ -33,6 +34,24 @@ def main():
     else:
         with f:
             params = yaml.load(f, Loader=yaml.FullLoader)
+
+    # search for dcds
+    if 'dcd' not in params:
+        # saving cwd to go back
+        cwd = os.getcwd()
+        try:
+            os.chdir(params["dir"])
+        except OSError:
+            print("Couldn't open directory for dcds")
+            sys.exit()
+        dcdfiles = []
+        for file in glob.glob("*.dcd"):
+            # getting absolute path
+            dcdfiles.append(os.path.abspath(file))
+        # safe
+        params['dcd'] = dcdfiles
+        # change back
+        os.chdir(cwd)
 
     # assign values
     try:

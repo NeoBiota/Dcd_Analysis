@@ -6,7 +6,7 @@
 #atoms in the list like GridMat param file... lipidatom, protein, etc.
 
 
-dcd: '../inputfiles/eq2.dcd'
+#dcd: '../inputfiles/eq2.dcd'
 pickle: 'gm_pickle'
 perl_param: '/parameters/param_example'
 #resname: DPPC

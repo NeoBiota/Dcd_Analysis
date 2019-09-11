@@ -3,7 +3,6 @@ Defines a class for reading and handeling dcd trajectory files
 endianness is assumed to be small
 """
 import numpy as np
-import sys
 from struct import unpack
 from os.path import getsize
 
