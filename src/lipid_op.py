@@ -11,7 +11,7 @@ import numpy as np
 import os
 import yaml
 import sys
-from dcd_analysis import dcd_trajectory
+import dcd_trajectory
 from operator import itemgetter
 
 

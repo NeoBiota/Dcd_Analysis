@@ -70,6 +70,8 @@ def main():
         params['atoms'] = 'P'
     if 'output' not in params:
         params['output'] = ["top_pbc", "bottom_pbc"]
+    if 'step' not in params:
+        params['step'] = 20
 
     # open outputs:
     outputs = open_outs(params['output'], params['outname'])
@@ -84,7 +86,8 @@ def main():
         dcd.parseHeader()
 
         # do the calculation
-        grid_mat(dcd, outputs, params['perl_param'], properties)
+        grid_mat(dcd, outputs, params['perl_param'], properties,
+                 params['step'])
 
     # clean up
     for key, outp in outputs.iteritems():
@@ -93,11 +96,14 @@ def main():
             os.remove("temp_%s.dat" % key)
 
 
-def grid_mat(dcd, outputs, param_file, properties):
+def grid_mat(dcd, outputs, param_file, properties, step):
 
+    i = 0
+    logging.info("Dcd has %s coordinate sets" % dcd._n_csets)
     # begin looping over frames
-    for i in range(dcd._n_csets):
+    while i < dcd._n_csets:
 
+        dcd.find_frame(i)
         logging.info("Currently in frame "+str(i))
         # open output
         temp = tempfile.NamedTemporaryFile('w', delete=False)
@@ -127,6 +133,11 @@ def grid_mat(dcd, outputs, param_file, properties):
             comb = open("temp_%s.dat" % key, 'r')
             outp.write(comb.read())
             comb.close()
+
+        # increment
+        i += step
+
+    return
 
 
 def open_outs(output, name):
